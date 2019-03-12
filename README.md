@@ -25,6 +25,7 @@ public class App
 You can see in the main App.java class we have a simple main method printing "Hello World!".
 
 **AppTest.java**
+
 ```java
 package bdd.training;
 
@@ -91,7 +92,7 @@ In AppTest we have got a simple JUnit test class. This is possible, because Mave
 </project>
 ```
 
-### Running the AppTest
+### Running AppTest
 We can run the test by right clicking on the open AppTest file and choosing "Run As > JUnit Test", which will result in the below appearing in your JUnit View in Eclipse:
 
 ![](images/junit-success.png)
@@ -132,5 +133,5 @@ Fortunately, when you ran the test coverage, you should have also had a new view
 This view is very useful as it tells us all the way down to the method level what level of test coverage we've got. As you can see the only thing being run during our test is the test code itself, we're not performing any checks on the actual application code.
 
 ### Next Steps
-Now that we know how to run a test class, but can see that we're not testing out application code, try and refactor the test to check that the application code is doing what we expect.
+Now that we know how to run a test class, but can see that we're not testing out application code and in fact, we don't really have any application code to test. In Section 2 we will implement a simple application using Test Driven Development.
 
