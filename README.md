@@ -1,11 +1,11 @@
 # BDD
-##Behaviour Driven Development Tutorial
+## Behaviour Driven Development Tutorial
 
 This project will walk you through how to adopt firstly Test Driven Development and then Behaviour Driven Development in your projects.
 
 Each section walks through steps in the README.md to learn new concepts of TDD or BDD with instructions. However, each section subsequently provides a complete working version from the prior section to continue from if you get into difficulties, by checking out the branch related to the next section.
 
-##Prerequisites
+### Prerequisites
 We will be using Java, Maven and Eclipse to go through the rest of this Tutorial. If you don't already have them or equivalent tools setup, please follow the links below before we get started.
 
 * Java    - https://www.java.com/en/download/ 
@@ -13,7 +13,7 @@ We will be using Java, Maven and Eclipse to go through the rest of this Tutorial
 * Maven   - https://maven.apache.org/download.cgi
 * Git     - https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
 
-##Getting Started
+### Getting Started
 To get started clone this repository to your local drive from the command prompt:
 
 ```
