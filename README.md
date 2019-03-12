@@ -4,7 +4,7 @@
 ### What have we got?
 Now that we have setup our initial project, let's take a look at what we have.
 
-** App.java **
+**App.java**
 
 ```java
 package bdd.training;
@@ -24,6 +24,7 @@ public class App
 
 You can see in the main App.java class we have a simple main method printing "Hello World!".
 
+**AppTest.java**
 ```java
 package bdd.training;
 
