@@ -30,6 +30,6 @@ Now open eclipse and import the project from "File > Open Project from File Syst
 
 ![](images/setup.png)
 
-Import both projects you find and then when expanded, nn the package explorer you should see something similar to below:
+Import both projects you find and then when expanded, in the package explorer you should see something similar to below:
 
 ![](images/package-explorer.png)
