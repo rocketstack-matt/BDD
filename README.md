@@ -113,3 +113,24 @@ And re-run the test you will now see a failure, as we asserted that we expected 
 ![](images/junit-failure.png)
 
 It also gives us some information about what failed in the Failure Trace section.
+
+### Testing with test coverage
+Whilst the above is a start, it doesn't really tell us a lot. What are we actually testing? Fortunately there is a second option available by default in Eclipse which allows us to also have the IDE check our Code Coverage. Instead of "Run As > JUnit Test" go to "Coverage As > JUnit Test" and you will see two useful things.
+
+**Coverage Syntax Highlighting**
+First you will see that the test class you ran form has been highlighted:
+
+![](images/coverage-syntax.png)
+
+The green highlighting tells us that the line in question was run as part of our tests. That's all well and good, but we don't really care about the test coverage of our test classes, rather we care about the coverage of our application code.
+
+**Coverage Detail**
+Fortunately, when you ran the test coverage, you should have also had a new view open. If you expand the nodes in the view you should see the below:
+
+![](images/coverage-detail.png)
+
+This view is very useful as it tells us all the way down to the method level what level of test coverage we've got. As you can see the only thing being run during our test is the test code itself, we're not performing any checks on the actual application code.
+
+### Next Steps
+Now that we know how to run a test class, but can see that we're not testing out application code, try and refactor the test to check that the application code is doing what we expect.
+
