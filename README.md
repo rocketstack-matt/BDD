@@ -23,7 +23,7 @@ git clone https://github.com/MrCodeghost/BDD.git
 To start working we will need a Java project. We will use Maven to create a bare project for us that we can then extend as we move forwards. Change Directory into the BDD directory we just cloned and run the following:
 
 ```
-	mvn -B archetype:generate -DarchetypeGroupId=org.apache.maven.archetypes -DgroupId=bdd.training -DartifactId=tutorial
+mvn -B archetype:generate -DarchetypeGroupId=org.apache.maven.archetypes -DgroupId=bdd.training -DartifactId=tutorial
 ```
 
 Now open eclipse and import the project from "File > Open Project from File System" and navigate to the BDD directory we just created.
