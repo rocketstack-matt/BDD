@@ -1,137 +1,88 @@
 # BDD
 ## Behaviour Driven Development Tutorial
 
-### What have we got?
-Now that we have setup our initial project, let's take a look at what we have.
+### Creating our first Story
+In this section we're going to use JBehave to create our first BDD test story and use that to drive our development.
 
-**App.java**
-
-```java
-package bdd.training;
-
-/**
- * Hello world!
- *
- */
-public class App 
-{
-    public static void main( String[] args )
-    {
-        System.out.println( "Hello World!" );
-    }
-}
-```
-
-You can see in the main App.java class we have a simple main method printing "Hello World!".
-
-**AppTest.java**
-
-```java
-package bdd.training;
-
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
-
-/**
- * Unit test for simple App.
- */
-public class AppTest 
-    extends TestCase
-{
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public AppTest( String testName )
-    {
-        super( testName );
-    }
-
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( AppTest.class );
-    }
-
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp()
-    {
-        assertTrue( true );
-    }
-}
-
-```
-
-In AppTest we have got a simple JUnit test class. This is possible, because Maven has automatically included the junit library as a dependency in the pom.xml.
+Before we do anything else, delete the App and AppTest classes, then open your pom.xml and add the following dependency.
 
 ```xml
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>bdd.training</groupId>
-	<artifactId>tutorial</artifactId>
-	<packaging>jar</packaging>
-	<version>1.0-SNAPSHOT</version>
-	<name>tutorial</name>
-	<url>http://maven.apache.org</url>
-	<dependencies>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>3.8.1</version>
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
-</project>
+<dependency>
+    <groupId>org.jbehave</groupId>
+    <artifactId>jbehave-core</artifactId>
+    <version>4.1</version>
+    <scope>test</scope>
+</dependency>
 ```
 
-### Running AppTest
-We can run the test by right clicking on the open AppTest file and choosing "Run As > JUnit Test", which will result in the below appearing in your JUnit View in Eclipse:
+We also need to upgrade the version of JUnit that Maven gave us to work with JBehave so change the version to 4.12.
 
-![](images/junit-success.png)
+This will pull in the necessary libraries from JBehave to allow us to write our first story. We also want to use annotations and our project is currently using Java 1.5 which doesn't support them, so also add the following to upgrade it to Java 1.8.
 
-This shows us that the test succeeded. If we change the default test to the following:
+```xml
+<properties>
+	<maven.compiler.source>1.8</maven.compiler.source>
+	<maven.compiler.target>1.8</maven.compiler.target>
+</properties>
+```
+
+**Our First Story**
+
+Let's start by creating a new file called calculator_story.story in the bdd.training package in the src/test/java directory, then copy in the below story.
+
+> **Scenario**: when a user inputs two numbers into a calculator using the 'plus' method it should return the sum of the two numbers    
+>  
+> **Given** a calculator    
+> **When** the user adds the numbers 24 and 11 together  
+> **Then** the value of the calculator must be 35   
+
+Now in the same directory add a class called CalculatorSteps.java and add the following code.
 
 ```java
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp()
-    {
-        assertTrue( false );
-    }
+public class CalculatorSteps {
+
+	@Given("a calculator")
+	public void setup() {
+		// Initialise the Calculator service.
+	}
+
+	@When("the user adds the numbers $number1 and $number2 together")
+	public void calculatorAdd(int x, int y) {
+		// Use the calculator's add funtion with the given parameters.
+	}
+
+	@Pending
+	@Then("the value of the calculator must be $number")
+	public void verifyResult(int result) {
+		// Verify the result.
+	}
+
+}
 ```
 
-And re-run the test you will now see a failure, as we asserted that we expected the statement under test to be true, but returned the value false:
+Note that we have marked the verifyResult method as @Pending. This allows us to force the test case to fail until we implement it.
 
-![](images/junit-failure.png)
+We now finally need to do a bit of setup to call our CalculatorSteps class from a JUnit. In the same package add a new class called CalculatorStory and paste in the following code.
 
-It also gives us some information about what failed in the Failure Trace section.
+```java
+public class CalculatorStory extends JUnitStory {
+	@Override
+	public Configuration configuration() {
+		return new MostUsefulConfiguration().usePendingStepStrategy(new FailingUponPendingStep())
+				.useStoryLoader(new LoadFromClasspath(this.getClass()))
+				.useStoryReporterBuilder(new StoryReporterBuilder().withDefaultFormats().withFormats(Format.CONSOLE));
+	}
 
-### Testing with test coverage
-Whilst the above is a start, it doesn't really tell us a lot. What are we actually testing? Fortunately there is a second option available by default in Eclipse which allows us to also have the IDE check our Code Coverage. Instead of "Run As > JUnit Test" go to "Coverage As > JUnit Test" and you will see two useful things.
+	@Override
+	public List<CandidateSteps> candidateSteps() {
+		return new InstanceStepsFactory(configuration(), new CalculatorSteps()).createCandidateSteps();
+	}
+}
+```
 
-**Coverage Syntax Highlighting**
-First you will see that the test class you ran form has been highlighted:
+The above class is using the JBehave framework libraries to load the story file we have created and use it to run against the test steps class we created. The inclusion of the FailingUponPendingStep() strategy. This ensures that JUnit will mark any unimplemented tests as failure cases, which is what we want until we implement a working test.
 
-![](images/coverage-syntax.png)
-
-The green highlighting tells us that the line in question was run as part of our tests. That's all well and good, but we don't really care about the test coverage of our test classes, rather we care about the coverage of our application code.
-
-**Coverage Detail**
-Fortunately, when you ran the test coverage, you should have also had a new view open. If you expand the nodes in the view you should see the below:
-
-![](images/coverage-detail.png)
-
-This view is very useful as it tells us all the way down to the method level what level of test coverage we've got. As you can see the only thing being run during our test is the test code itself, we're not performing any checks on the actual application code.
+If you now run the CalculatorStory using JUnit you will see output to your console, effectively printing the unimplemented test and the JUnit window will show the failure for the Pending test.
 
 ### Next Steps
-Now that we know how to run a test class, but can see that we're not testing out application code and in fact, we don't really have any application code to test. In Section 2 we will implement a simple application using Test Driven Development.
-
+Try and add a Caclulator class that will implement the business logic as specified by the test. When you're ready to progress switch to section3.
