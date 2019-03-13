@@ -8,10 +8,10 @@ Each section walks through steps in the README.md to learn new concepts of TDD o
 ### Prerequisites
 We will be using Java, Maven and Eclipse to go through the rest of this Tutorial. If you don't already have them or equivalent tools setup, please follow the links below before we get started.
 
-* Java    - https://www.java.com/en/download/ 
-* Eclipse - https://www.eclipse.org/ 
-* Maven   - https://maven.apache.org/download.cgi
-* Git     - https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
+* Java SDK - https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+* Eclipse  - https://www.eclipse.org/ 
+* Maven    - https://maven.apache.org/download.cgi
+* Git      - https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
 
 ### Getting Started
 To get started clone this repository to your local drive from the command prompt:
