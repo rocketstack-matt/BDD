@@ -33,3 +33,6 @@ Now open eclipse and import the project from "File > Open Project from File Syst
 Import both projects you find and then when expanded, in the package explorer you should see something similar to below:
 
 ![](images/package-explorer.png)
+
+**Next Steps**
+To carry on with this tutorial change to the section1 branch
