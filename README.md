@@ -85,4 +85,4 @@ The above class is using the JBehave framework libraries to load the story file 
 If you now run the CalculatorStory using JUnit you will see output to your console, effectively printing the unimplemented test and the JUnit window will show the failure for the Pending test.
 
 ### Next Steps
-Try and add a Caclulator class that will implement the business logic as specified by the test. When you're ready to progress switch to section3.
+Try and add a Calculator class that will implement the business logic as specified by the test. When you're ready to progress switch to section3.
