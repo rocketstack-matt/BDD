@@ -34,5 +34,5 @@ Import both projects you find and then when expanded, in the package explorer yo
 
 ![](images/package-explorer.png)
 
-**Next Steps**
+### Next Steps
 To carry on with this tutorial change to the section1 branch
