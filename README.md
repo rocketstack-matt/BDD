@@ -133,5 +133,5 @@ Fortunately, when you ran the test coverage, you should have also had a new view
 This view is very useful as it tells us all the way down to the method level what level of test coverage we've got. As you can see the only thing being run during our test is the test code itself, we're not performing any checks on the actual application code.
 
 ### Next Steps
-Now that we know how to run a test class, but can see that we're not testing out application code and in fact, we don't really have any application code to test. In Section 2 we will implement a simple application using Test Driven Development.
+Now that we know how to run a test class, but can see that we're not testing out application code and in fact, we don't really have any application code to test. In Section 2 we will implement a simple application using Behaviour Driven Development.
 
