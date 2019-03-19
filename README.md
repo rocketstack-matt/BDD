@@ -16,9 +16,9 @@ To use Concordion in our project, we will need to add the dependencies to our bu
 ```xml
 <dependency>
 	<groupId>org.concordion</groupId>
-   <artifactId>concordion</artifactId>
-   <version>2.2.0</version>
-   <scope>test</scope>
+	<artifactId>concordion</artifactId>
+	<version>2.2.0</version>
+	<scope>test</scope>
 </dependency>
 <dependency>
 	<groupId>org.chiknrice</groupId>
