@@ -1,7 +1,1 @@
-**Scenario**: when a user inputs two numbers into a calculator using the 'plus' method it should return the sum of the two numbers
-
-**Given** a calculator 
-
-**When** the user adds the numbers 24 and 11 together
-
-**Then** the value of the calculator must be 35
+A user would like to know the sum of the numbers [24](- "#num1") and [11](- "#num2"). Using a **Calculator** we can use the [add method](- "#result = add(#num1, #num2)") to calculate it should be [35](- "?=#result").
