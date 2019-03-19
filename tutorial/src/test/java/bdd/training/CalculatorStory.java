@@ -16,8 +16,8 @@ public class CalculatorStory extends JUnitStory {
 	@Override
 	public Configuration configuration() {
 		return new MostUsefulConfiguration().usePendingStepStrategy(new FailingUponPendingStep())
-				.useStoryLoader(new LoadFromClasspath(this.getClass()))
-				.useStoryReporterBuilder(new StoryReporterBuilder().withDefaultFormats().withFormats(Format.CONSOLE));
+				.useStoryLoader(new LoadFromClasspath(this.getClass())).useStoryReporterBuilder(
+						new StoryReporterBuilder().withDefaultFormats().withFormats(Format.CONSOLE, Format.HTML));
 	}
 
 	@Override
