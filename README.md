@@ -144,4 +144,6 @@ Admittedly the example we've walked through is pretty simple, but hopefully you 
 
 This tutorial has delibarately used the basic conventions of the tools we've looked at, so please do read further on the websites to get a deeper understanding of how you can make greater use of the tools. For example, Concordion doesn't have to use markdown to write the test stories, you can use HTML instead which gives you complete control over the presentation.
 
+Additionally Eclipse (and IntelliJ) both offer tools to make working with JBehave and Concordion easier. We have deliberately stuck to what you get out of the box with Eclipse in this tutorial, but explore the plugins you can get to provide a better developer experience.
+
 If you have had trouble getting anything in this section to work, change to the section4-final branch to see a working copy of the code.
