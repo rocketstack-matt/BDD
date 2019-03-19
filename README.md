@@ -36,4 +36,4 @@ Let's add the following to the new file.
 **Then** the value of the calculator must be 35
 ```
 
-There isn't much difference between the text above and the one we had for the JBehave story file, but when you open it you will see it renders, you can look at the file directly in Github [here](https://github.com/MrCodeghost/BDD/tree/section4/tutorial/src/test/java/CalculatorTests.md) to see what I mean. 
+There isn't much difference between the text above and the one we had for the JBehave story file, but when you open it you will see it renders, you can look at the file directly in Github [here](https://github.com/MrCodeghost/BDD/edit/section4/tutorial/src/test/java/bdd/training/concordion/CalculatorTests.md) to see what I mean. 
