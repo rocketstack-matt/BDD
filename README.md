@@ -17,7 +17,7 @@ We will be using Java, Maven and Eclipse to go through the rest of this Tutorial
 To get started clone this repository to your local drive from the command prompt:
 
 ```
-git clone https://github.com/MrCodeghost/BDD.git
+git clone https://github.com/rocketstack-matt/BDD.git
 ```
 
 To start working we will need a Java project. We will use Maven to create a bare project for us that we can then extend as we move forwards. Change Directory into the BDD directory we just cloned and run the following:
